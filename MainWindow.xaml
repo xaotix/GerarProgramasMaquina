@@ -1,0 +1,34 @@
+﻿<mui:ModernWindow x:Class="GerarProgramasMaquina.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  Title="Gerar Programas Banzo Medajoist Tipo D v1.4"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                  Style="{StaticResource BlankWindow}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Center"  Background="Transparent" Name="menu">
+            <MenuItem Header="Importar..." Background="Transparent">
+                <MenuItem Header="Limpar Lista..." Click="MenuItem_Click"></MenuItem>
+                <MenuItem Header="Adicionar..." Click="MenuItem_Click_1" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Exportar"  Background="Transparent">
+                <MenuItem Header="Verificar" Click="verificar" Background="Transparent"></MenuItem>
+                <MenuItem Header="Programa de Máquina" Click="MenuItem_Click_2" Background="Transparent"></MenuItem>
+                <MenuItem Header="Desenho para Conferência" Click="MenuItem_Click_3"  Background="Transparent"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Sobre" Background="Transparent" Click="MenuItem_Click_4"></MenuItem>
+        </Menu>
+        <DataGrid Grid.Row="10" Name="lista" AutoGenerateColumns="False" FontSize="11" SelectionMode="Extended" CanUserDeleteRows="True" CanUserAddRows="False" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Tipo" Binding="{Binding Tipo_Banzo,Mode=OneWay}" MinWidth="100"  IsReadOnly="True" />
+                <DataGridTextColumn  Header="Comprimento" Binding="{Binding Comprimento,Mode=OneWay}" MinWidth="100"  IsReadOnly="True" />
+                <DataGridTextColumn Header="Nome" Binding="{Binding NomeOriginal,Mode=OneWay}" Width="auto" MinWidth="150"  IsReadOnly="True" />
+                <DataGridTextColumn Header="Arquivo" Binding="{Binding Arquivo,Mode=OneWay}" Width="*" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</mui:ModernWindow>
